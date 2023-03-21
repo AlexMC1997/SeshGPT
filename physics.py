@@ -1,6 +1,6 @@
 import matplotlib.pyplot as pt
-P = (0, 10)
-V0 = (0, 0)
+P = (5.0, 10.0)
+V0 = (3.0, 1.0)
 
 def do_phys(p, v0, dt, t0, t1, g):
     t = t0
@@ -14,3 +14,4 @@ def do_phys(p, v0, dt, t0, t1, g):
 tab = do_phys(P, V0, 0.2, 0, 2, 10)
 tab = list(zip(*tab))
 pt.plot(tab[0], tab[1], '-r')
+pt.show()
