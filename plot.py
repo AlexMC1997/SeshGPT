@@ -54,13 +54,21 @@ def extract_from_tuple(data):
         y_coords.append(y)
     return time_arr, x_coords, y_coords
 
-calculated_data = extract("calculated.txt")
-gpt_data = extract("gpt_generated.txt")
+def main():
+    # Default value is calculated.txt and gpt_generated.txt
+    calc_string = input("Provide Calculated Dataset: ") or "calculated.txt"
+    gpt_string = input("Provide GPT Dataset: ") or "gpt_generated.txt"
 
-print_extracted(calculated_data)
-print_extracted(gpt_data)
+    calculated_data = extract(calc_string)
+    gpt_data = extract(gpt_string)
 
-calculated_time, calculated_x, calculated_y = extract_from_tuple(calculated_data)
-gpt_time, gpt_x, gpt_y = extract_from_tuple(gpt_data)
+    print_extracted(calculated_data)
+    print_extracted(gpt_data)
 
-plot(calculated_time, calculated_x, calculated_y, gpt_time, gpt_x, gpt_y)
+    calculated_time, calculated_x, calculated_y = extract_from_tuple(calculated_data)
+    gpt_time, gpt_x, gpt_y = extract_from_tuple(gpt_data)
+
+    plot(calculated_time, calculated_x, calculated_y, gpt_time, gpt_x, gpt_y)
+
+if __name__ == "__main__":
+    main()
